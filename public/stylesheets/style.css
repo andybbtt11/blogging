@@ -147,7 +147,6 @@ p{
 }
 
 .blog-details{
-	display: none;
 	padding-top:20px;
 }
 .blog-details img,
@@ -191,6 +190,16 @@ p{
 }
 .changelog{
 	padding:40px 0;
+}
+.hide{
+	opacity:0;
+}
+.show{
+	opacity:1;
+	display:block;
+	-webkit-transition:opacity .25s;
+	-moz-transition:opacity .25s;
+	transition:opacity .25s;
 }
 
 @media screen and (max-width:600px){

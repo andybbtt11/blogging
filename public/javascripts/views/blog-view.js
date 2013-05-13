@@ -10,19 +10,22 @@ var BlogListView = Backbone.View.extend({
 
 	loader: $('.loader'),
 
+	details: $('.blog-details'),
+
 	initialize: function(){
 		var that = this;
+
+		this.details.removeClass('show').addClass('hide');
+
 		this.collection.bind('reset', this.render, this);	
 
-		// Don't fetch if we already have it!
-		if(this.collection.length){
+		if( this.collection.length ){
 			this.render();
-			this.$el.fadeIn(200);
+			this.$el.addClass('show');
 		} else {
-			this.loader.show();
 			this.collection.fetch().complete(function(){
 				that.loader.hide();
-				this.$el.fadeIn(200);
+				that.$el.addClass('show');
 			});
 		}
 	},
@@ -58,6 +61,7 @@ var BlogItemView = Backbone.View.extend({
 	},
 
 	render: function(){
+		this.$el.attr('id',this.model.get('id'));
 		this.$el.html( this.template( this.model.toJSON() ));
 		return this.el
 	},
@@ -65,8 +69,6 @@ var BlogItemView = Backbone.View.extend({
 	showDetail: function(){
 		// Keep this the same as the href in the template
 		window.location = '#' + this.model.get('id');
-		this.$el.attr('id','active');
-		return;
 	}
 
 });

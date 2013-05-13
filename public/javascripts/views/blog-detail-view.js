@@ -19,6 +19,8 @@ var BlogDetailView = Backbone.View.extend({
 
 		// Grab the ID from the hash to load correct data
 		this.location = window.location.hash.substring(1);
+
+		this.$el.attr('id', this.location );
 		
 		// Don't fetch if we already have it!
 		if(this.collection.length){
@@ -41,7 +43,7 @@ var BlogDetailView = Backbone.View.extend({
 		$(/chrome|safari/i.test(window.navigator.userAgent) ? 'body' : 'html').animate( { scrollTop: 0 }, 100 );
 		
 		// Show content TODO: Use CSS.
-		this.$el.fadeIn(200);
+		this.$el.removeClass('hide').addClass('show');
 		
 	}
 
