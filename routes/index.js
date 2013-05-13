@@ -3,9 +3,9 @@ var db = require('../database.js');
 exports.posts={};
 
 exports.posts.all = function(req,res){
-	db.posts.find(function(err, expenses){
+	db.posts.find(function(err, posts){
 	    if(err) return;
-	    res.json(expenses);
+	    res.json(posts);
   	});
 };
 

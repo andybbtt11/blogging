@@ -130,7 +130,7 @@ p{
 }
 
 .blog-item:hover .img img{
-	margin-left:-50px;
+	margin-left:-100px;
 	transition:all .2s;
 }
 
