@@ -1,8 +1,11 @@
 var BlogModel = Backbone.Model.extend({
 
-	urlRoot: 'data/',
+	urlRoot: '/blogging',
+
+	idAttribute: "_id",
 
 	defaults:{
+		'_id' : null,
 		'id' : null,
 		'category' : 'Gaming',
 		'title' : 'No Title Entered',
