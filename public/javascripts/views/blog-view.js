@@ -61,14 +61,14 @@ var BlogItemView = Backbone.View.extend({
 	},
 
 	render: function(){
-		this.$el.attr('id',this.model.get('id'));
+		this.$el.attr('id',this.model.get('_id'));
 		this.$el.html( this.template( this.model.toJSON() ));
 		return this.el
 	},
 
 	showDetail: function(){
 		// Keep this the same as the href in the template
-		window.location = '#' + this.model.get('id');
+		window.location = '#' + this.model.get('_id');
 	}
 
 });
