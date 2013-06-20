@@ -7,6 +7,7 @@ var express = require('express'),
 	routes = require('./routes'),
 	http = require('http'),
 	path = require('path'),
+	mongoose = require('mongoose'),
 	engine = require('ejs-locals'),
 	app = express();
 
