@@ -20,4 +20,5 @@ exports.posts.one = function(req, res){
 exports.posts.create = function(req, res){
 	res.json(req.body);
 	db.posts.save(req.body);
+	console.log(req.body);
 };

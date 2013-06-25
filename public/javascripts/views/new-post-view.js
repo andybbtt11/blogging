@@ -2,10 +2,11 @@ var NewPostView = Backbone.View.extend({
 
 	el: '.container.new-post',
 
-	collection: blogsCollection,
+	model: blogModel,
 
 	events:{
-		'click .back' : 'cancel'
+		'click .back' : 'cancel',
+		'submit form' : 'save'
 	},
 
 	location: null,
@@ -24,7 +25,15 @@ var NewPostView = Backbone.View.extend({
 		$('.blog-content').hide();
 		// Populate the dom with the data
 		this.$el.append( this.template() );
-		
+	},
+
+	save: function(event){
+		event.preventDefault();
+
+		var data = Backbone.Syphon.serialize(this);
+		this.model.set(data);
+
+		this.model.save();
 	},
 
 	cancel: function(){
